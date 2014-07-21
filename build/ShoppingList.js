@@ -2,7 +2,7 @@
 
 var ShoppingList = React.createClass({displayName: 'ShoppingList',
     getInitialState: function() {
-        return { items: [] };
+        return { items: [], loading: true };
     },
     findKey: function(items, name) {
         return _.findKey(items, function(i) { return i.name.toLowerCase() == name.toLowerCase(); });
@@ -46,7 +46,7 @@ var ShoppingList = React.createClass({displayName: 'ShoppingList',
                                 this.makeServerItem(serverItem));
             }.bind(this));
 
-            this.setState({ items: merged });
+            this.setState({ items: merged, loading: false });
         }.bind(this));
     },
     makeServerItem: function(clientItem) {
@@ -132,10 +132,15 @@ var ShoppingList = React.createClass({displayName: 'ShoppingList',
         }
     },
     render: function() {
-        return React.DOM.div(null, 
+        var dispItems = 
                _.chain(this.state.items)
                 .where(function(item) { return item.count > 0 || item.just_removed; })
                 .sortBy(function(item) { return item.name.toLowerCase(); })
+                .value();
+
+        console.log(dispItems.length);
+        return React.DOM.div(null, 
+               _.chain(dispItems)
                 .map(function(item) {
                     return (
                         React.DOM.div( {key: item.name,  className:"shopping row"}, 
@@ -153,7 +158,37 @@ var ShoppingList = React.createClass({displayName: 'ShoppingList',
                             )
                         ));
                 }.bind(this))
-                .value()
+                .value(),
+                
+                 this.state.loading ? React.DOM.div( {style:{
+                        background: 'url(images/spinner.gif)',
+                        width: 32,
+                        height: 32,
+                        position: 'absolute',
+                        left: '50%',
+                        top: '50%',
+                        marginLeft: -16,
+                        marginTop: -16
+                    }} ) : "",
+                
+                 (!this.state.loading && dispItems.length == 0) ? React.DOM.div( {style:{
+                        background: 'url(images/allgood.png)',
+                        backgroundRepeat: 'no-repeat',
+                        width: 116,
+                        height: 120,
+                        position: 'absolute',
+                        left: '50%',
+                        top: '50%',
+                        marginLeft: -58,
+                        marginTop: -60,
+                        color: '#b5b098',
+                        fontFamily: 'Superclarendon-Light',
+                        fontWeight: 'light',
+                        fontSize: '12pt',
+                        letterSpacing: '2px',
+                        textAlign: 'center',
+                        paddingTop: 115,
+                    }}, "All good!") : "" 
                 );
     }
 });
