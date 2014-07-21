@@ -1,0 +1,29 @@
+body {
+    background: #eee;
+    font-size: 18pt;
+}
+
+.shopping.row {
+    padding: 0.5em 0;
+    border-bottom: solid 1px #888;
+}
+
+.removed {
+    text-decoration:line-through;
+}
+
+.striker {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    border-top: solid 4px red;
+}
+
+.row {
+    height: auto;
+}
+
+input[type=text], input[type=submit] {
+    font-size: 24px;
+    height: 50px;
+}
