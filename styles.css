@@ -1,6 +1,8 @@
 body {
     background: #eee;
     font-size: 18pt;
+    width: 95%;
+    margin: 0 auto;
 }
 
 .shopping.row {

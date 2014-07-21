@@ -37,7 +37,7 @@ var InputBox = React.createClass({displayName: 'InputBox',
         return (
             React.DOM.form( {onSubmit:this.handleSubmit}, 
                 React.DOM.div( {className:"row collapse"}, 
-                    React.DOM.div( {className:"small-10 columns", style:{ position: 'relative' }}, 
+                    React.DOM.div( {className:"medium-10 small-8 columns", style:{ position: 'relative' }}, 
                         React.DOM.input( {key:"input",
                                ref:"inputBox",
                                type:"text",
@@ -66,7 +66,7 @@ var InputBox = React.createClass({displayName: 'InputBox',
                             }.bind(this))
                         )
                     ),
-                    React.DOM.div( {className:"small-2 columns"}, 
+                    React.DOM.div( {className:"medium-2 small-4 columns"}, 
                         React.DOM.input( {type:"submit", className:"button postfix", value:"Add"} )
                     )
                 )

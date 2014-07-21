@@ -139,14 +139,14 @@ var ShoppingList = React.createClass({
                 .map(function(item) {
                     return (
                         <div key={ item.name } className="shopping row">
-                            <div className="small-10 columns"
+                            <div className="medium-10 small-8 columns"
                                  style={{ cursor: 'pointer', position: 'relative' }}
                                  onClick={ this.remove.bind(this, item.name) }>
                                 { item.just_removed ? <div className="striker" /> : "" }
                                 { item.name }
                             </div>
-                            <div className="small-1 columns text-center">{ item.count > 1 ? item.count : '' }</div>
-                            <div className="small-1 columns text-center"
+                            <div className="medium-1 small-2 columns text-center">{ item.count > 1 ? item.count : '' }</div>
+                            <div className="medium-1 small-2 columns text-center"
                                  style={{ cursor: 'pointer' }}
                                  onClick={ this.plus.bind(this, item.name) }>
                                 <i className="gen-enclosed fi-plus"></i>

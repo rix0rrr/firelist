@@ -37,7 +37,7 @@ var InputBox = React.createClass({
         return (
             <form onSubmit={this.handleSubmit}>
                 <div className="row collapse">
-                    <div className="small-10 columns" style={{ position: 'relative' }}>
+                    <div className="medium-10 small-8 columns" style={{ position: 'relative' }}>
                         <input key="input"
                                ref="inputBox"
                                type="text"
@@ -66,7 +66,7 @@ var InputBox = React.createClass({
                             }.bind(this))}
                         </div>
                     </div>
-                    <div className="small-2 columns">
+                    <div className="medium-2 small-4 columns">
                         <input type="submit" className="button postfix" value="Add" />
                     </div>
                 </div>
