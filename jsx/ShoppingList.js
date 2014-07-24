@@ -138,7 +138,6 @@ var ShoppingList = React.createClass({
                 .sortBy(function(item) { return item.name.toLowerCase(); })
                 .value();
 
-        console.log(dispItems.length);
         return <div>{
                _.chain(dispItems)
                 .map(function(item) {
